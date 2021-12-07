@@ -1,10 +1,19 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from 'react';
 
-const ButtonComponent: React.FC = (): ReactElement => {
+import { BaseButtonProps } from './interface';
+
+import "./style/index.less";
+
+const ButtonComponent: React.FC<BaseButtonProps> = (props: BaseButtonProps = {}): ReactElement => {
+    const {
+        children,
+        // type
+    } = props;
+
     return (
-        <div>
-            Button
-        </div>
+        <button>
+            { children }
+        </button>
     )
 };
 

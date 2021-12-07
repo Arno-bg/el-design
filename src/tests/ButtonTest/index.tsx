@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from 'react';
+import { Button } from "../../components/el-desing"
 
 const ButtonTest: React.FC = (): ReactElement => {
     return (
-        <div>
-            Button
-        </div>
+        <Button>
+            Test
+        </Button>
     )
 };
 
