@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { IRoute } from "../../typings";
 
 const MyLoadsh = lazy(() => import("../../tests/MyLoadash"));
-const Button = lazy(() => import("../../tests/Button"));
+const Button = lazy(() => import("../../tests/ButtonTest"));
 
 
 const routes: IRoute[] = [

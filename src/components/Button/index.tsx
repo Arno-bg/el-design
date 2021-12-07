@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-const Button: React.FC = (): ReactElement => {
+const ButtonComponent: React.FC = (): ReactElement => {
     return (
         <div>
             Button
@@ -8,4 +8,4 @@ const Button: React.FC = (): ReactElement => {
     )
 };
 
-export default Button;
+export default ButtonComponent;
