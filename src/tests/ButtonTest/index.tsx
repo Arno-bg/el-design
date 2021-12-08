@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Button } from "../../components/el-desing"
+import { Button } from "../../components/el-design"
 
 const ButtonTest: React.FC = (): ReactElement => {
     return (

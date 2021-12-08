@@ -1,3 +1,8 @@
-{
-    "ignorePatterns": ["src/**"],
-}
+icon/index.js
+icon/index.es.js
+icon/demo.js
+icon/index.d.ts
+stories/**/*.jsx
+*.json
+react-icon/
+react-icon-cjs/
