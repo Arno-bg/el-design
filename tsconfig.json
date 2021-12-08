@@ -8,7 +8,6 @@
       "es5",
       "dom"
     ],
-    "moduleResolution": "node",
     "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -23,12 +22,15 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "moduleResolution": "node"
   },
   "exclude": [
-    "src/**.tsx"
+    "node_modules",
+    "src/icon/**/**/*.js"
   ],
   "include": [
-    "src"
-  ]
+    "src/components/**/*.tsx"
+  ],
+  "extends": "./paths.json"
 }
