@@ -1,4 +1,5 @@
-import isArguments from "../isArguments";
+import { isArguments } from "../is";
+
 type TPredicate = (value: any) => boolean;
 /*
     内置的Symbol.isConcatSpreadable符号

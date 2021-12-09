@@ -1,3 +1,9 @@
-button {
-    width: 300px;
+@import '../../style/default.less';
+
+@btn-prefix-cls: ~'@{prefix}-btn';
+
+.btn-type(@type) {
+    .@{btn-prefix-cls}-@{type}:not(.@{btn-prefix-cls}-disabled) {
+        background-color: ~"@{btn-@{type}-color-bg}";
+    }
 }

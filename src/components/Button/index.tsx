@@ -1,27 +1,80 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode, useContext } from 'react';
 import IconLoading from '../../icon/react-icon/IconLoading';
-import { BaseButtonProps } from './interface';
+
+import { ConfigContext } from '../ConfigProvider';
+import { ButtonProps } from './interface';
+
+import cs from "../../utils/cs";
 
 import "./style/index.less";
 
-const ButtonComponent: React.FC<BaseButtonProps> = (props: BaseButtonProps = {}): ReactElement => {
+const processChildren = (children?: ReactNode) => {
+    const childrenList: any[] = [];
+    let isPrevChildPure = false;
+    React.Children.forEach(children, child => {
+        const isCurrentChildPure = typeof child === "string" || typeof child === "number";
+
+        if (isCurrentChildPure && isPrevChildPure) {
+            const lastIndex = childrenList.length - 1;
+            const lastChild = childrenList[lastIndex];
+            childrenList[lastIndex] = `${lastChild}${child}`;
+        } else {
+            childrenList.push(child);
+        }
+
+        isPrevChildPure = isCurrentChildPure;
+    });
+
+    return React.Children.map(childrenList, child => {
+        return typeof child === "string" ? <span>{child}</span> : child;
+    });
+};
+
+const defaultProps: ButtonProps = {
+    htmlType: 'button',
+    type: 'default',
+    shape: 'square',
+};
+
+const ButtonComponent: React.FC<ButtonProps> = (props: ButtonProps = defaultProps): ReactElement => {
     const {
         children,
         icon,
-        // loading
-        // type
+        loading,
+        htmlType,
+        type,
+        ...rest
     } = props;
 
-    const iconNode = true ? <IconLoading /> : icon;
+    const {
+        getPrefixCls,
+        // size: ctxSize,
+        // autoInsertSpaceInButton,
+        // componentConfig,
+      } = useContext(ConfigContext);
+
+    const iconNode = loading ? <IconLoading /> : icon;
+    const _type = type === "default" ? "secondary" : type;
+
+    const prefixCls = getPrefixCls!('btn');
+    const classNames = cs(
+        prefixCls,
+        `${prefixCls}-${_type}`
+    );
+
     const InnerContent = (
         <>
             {iconNode}
-            {children}
+            {processChildren(children)}
         </>
     );
 
     return (
-        <button>
+        <button
+            {...rest}
+            type={htmlType}
+            className={classNames}
+        >
             { InnerContent }
         </button>
     )
