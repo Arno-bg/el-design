@@ -1,5 +1,13 @@
-import flatten from "./flatten";
+import flatten from "./methods/flatten";
+import debounce from "./methods/debounce";
+import now from "./methods/now";
+import cs from "./methods/cs";
+import toNumber from "./methods/toNumber";
 
 export {
-    flatten
+    flatten,
+    debounce,
+    now,
+    cs,
+    toNumber
 };

@@ -33,10 +33,10 @@ table {
     table-layout: fixed;
 }
 
-input, textarea {
+/* input, textarea {
     outline: none;
     border: none;
-}
+} */
 
 textarea {
     resize: none;

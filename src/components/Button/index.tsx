@@ -4,7 +4,7 @@ import IconLoading from '../../icon/react-icon/IconLoading';
 import { ConfigContext } from '../ConfigProvider';
 import { ButtonProps } from './interface';
 
-import cs from "../../utils/cs";
+import cs from "../../utils/methods/cs";
 
 import "./style/index.less";
 

@@ -15,3 +15,7 @@ export function isString(obj: any): obj is string {
 export const isArguments = (value: any = ""): boolean => {
     return opt.call(value) === "[object Arguments]";
 };
+
+export const isSymbol = (value: any = ""): boolean => {
+    return opt.call(value) === "[object Symbol]";
+};
